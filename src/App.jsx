@@ -3,7 +3,7 @@ import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
-
+import Card from './Card';
 import './App.css';
 
 function App() {
@@ -53,6 +53,7 @@ function App() {
 
   }
   return (
+    <>
     <Container >
 
       <div className="App">
@@ -64,42 +65,27 @@ function App() {
          /></Button>
 
         {/* ==========CARD COMPONENT====================== */}
-        <Container maxWidth="sm" style={{
-         marginTop: "20px",
-         border: "2px solid black", 
-        borderRadius: "16px",
-        boxShadow:"4px 9px 25px 0px black",
-        backgroundColor:" rgb(250 242 167 / 59%)"}}>
-          <div className="App" >
-            <img alt="_its_ronnny_____" style={styles} src={img} />
-            <h2>{userName}</h2>
-            <h5>{name}</h5>
-            <Container style={{ display: 'flex', flexDirection: "row", justifyContent: "space-around" }}>
-              <div className="App">
-                <h5>Posts</h5>
-                <span><b>{post}</b></span>
-              </div>
+       
+      <Card image={img} 
+        follo ={follower} 
+        folling={following}
+        user={userName}
+        namex  ={name}
+        status={privacy}
+        link={api}
+        postx={post}
+        stylem={styles}
+        />
 
-              <div className="App">
-                <h5>Followers</h5>
-                <span><b>{follower}</b></span>
-              </div>
-
-              <div className="App">
-                <h5>Following</h5>
-                <span><b>{following}</b></span>
-              </div>
-
-            </Container>
-            <h5>Account Privacy: {privacy?"Private":"Public"} </h5>
-            <Button variant="contained" color="primary" style={{margin:"10px"}}><a 
-            style={{color:"white", textDecoration:"none"}}
-             href={`https://www.instagram.com/${api}/?`} target="__blank">Go to Profile</a></Button>
-          </div>
-        </Container>
+        
       </div>
     </Container>
+ 
+    </>
+
+     
   );
 }
 
 export default App;
+
